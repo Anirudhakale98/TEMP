@@ -27,8 +27,8 @@ def euclidean_distance(point,centroid):
     return np.sqrt(np.sum((point-centroid)**2))
 
 def k_mean(points,m1,m2,m3,max_iteration=10):
+    clusters = {1:[],2:[],3:[]}
     for iteration in range(max_iteration):
-        clusters = {1:[],2:[],3:[]}
         for point in points:
             dist1 = euclidean_distance(point,m1)
             dist2 = euclidean_distance(point,m2)
@@ -47,7 +47,7 @@ def k_mean(points,m1,m2,m3,max_iteration=10):
             break
         m1,m2,m3 = new_m1,new_m2,new_m3
 
-        return clusters,m1,m2,m3
+    return clusters,m1,m2,m3
 
 clusters,updated_m1,updated_m2,updated_m3 = k_mean(points,m1,m2,m3,15)
 

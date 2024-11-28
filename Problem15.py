@@ -21,7 +21,10 @@ print(titanic.describe(include='all'))
 # Check for missing values
 print(titanic.isnull().sum())
 
+# Plot all types of graphs to find patterns in the data
+
 # Survival Rate by Gender
+
 sns.countplot(data=titanic, x='Sex', hue='Survived', palette='viridis')
 plt.title('Survival by Gender')
 plt.xlabel('Gender')
@@ -29,3 +32,11 @@ plt.ylabel('Count')
 plt.legend(['Did not survive', 'Survived'])
 plt.show()
 
+# Write a code to check how the price of the ticket (column
+# name: 'fare') for each passenger is distributed by plotting a histogram.
+
+sns.histplot(titanic['Fare'], bins=30, kde=True, color='red')
+plt.title('Fare Distribution')
+plt.xlabel('Fare')
+plt.ylabel('Frequency')
+plt.show()
